@@ -1,19 +1,27 @@
 const myLibrary = [];
-
-function Book(title, author, pages, read) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-};
-
 let title = document.querySelector('#title');
 let author = document.querySelector('#author');
 let pages = document.querySelector('#pages');
 let read = document.querySelector('#read');
 let button = document.querySelector('.add');
 let catalog = document.querySelector('.catalog');
-button.addEventListener('click', function() {
+
+// function Book(title, author, pages, read) {
+//     this.title = title;
+//     this.author = author;
+//     this.pages = pages;
+//     this.read = read;
+// };
+class Book {
+    constructor(title, author, pages, read) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
+}
+
+button.addEventListener('click', function(event) {
     let book = new Book(title.value, author.value, pages.value, read.checked)
     myLibrary.push(book);
     event.preventDefault();  // Prevent form submission
